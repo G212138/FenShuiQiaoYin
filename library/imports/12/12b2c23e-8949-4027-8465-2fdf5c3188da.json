@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn-paizhaohui",
+    "texture": "c0b5ab16-c575-454d-ba76-841ecc6633c4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      209,
+      125
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      209,
+      125
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

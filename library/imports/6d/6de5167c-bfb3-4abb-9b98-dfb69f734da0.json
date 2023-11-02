@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_gezidi",
+    "texture": "cb306552-6295-4606-b8f1-98e32fa038f4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      449,
+      799
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      449,
+      799
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

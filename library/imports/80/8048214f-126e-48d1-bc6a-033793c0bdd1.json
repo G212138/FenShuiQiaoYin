@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "pg_tigankuang",
+    "texture": "f1e9a22e-afec-42bb-9938-5b764451d25b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1461,
+      124
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1461,
+      124
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_yetishang",
+    "texture": "899d3a8a-796d-4c1e-9fe5-3205d6133461",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      135,
+      11
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      135,
+      11
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

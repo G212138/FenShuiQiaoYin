@@ -1,0 +1,48 @@
+
+img_shiguan.png
+size: 296,296
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+成功
+  rotate: false
+  xy: 167, 2
+  size: 93, 93
+  orig: 93, 93
+  offset: 0, 0
+  index: -1
+泡泡
+  rotate: false
+  xy: 2, 2
+  size: 17, 16
+  orig: 18, 18
+  offset: 1, 1
+  index: -1
+瓶身的线
+  rotate: false
+  xy: 2, 20
+  size: 92, 274
+  orig: 92, 274
+  offset: 0, 0
+  index: -1
+自然饱和度 1 拷贝 11
+  rotate: false
+  xy: 167, 97
+  size: 69, 197
+  orig: 69, 197
+  offset: 0, 0
+  index: -1
+蓝色瓶身
+  rotate: false
+  xy: 96, 41
+  size: 69, 253
+  orig: 69, 253
+  offset: 0, 0
+  index: -1
+黄线
+  rotate: false
+  xy: 96, 32
+  size: 69, 7
+  orig: 69, 7
+  offset: 0, 0
+  index: -1

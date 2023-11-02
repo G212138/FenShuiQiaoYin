@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_yetixia",
+    "texture": "9cd29051-003e-4803-bdc4-5989e54e46fd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      135,
+      81
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      135,
+      81
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

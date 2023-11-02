@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn-dikuang1",
+    "texture": "2e0d07d9-6e77-43a1-8baf-c09002e08d1e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      136,
+      145
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      136,
+      145
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

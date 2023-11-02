@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_yetipao",
+    "texture": "c33fe3a9-519d-4546-b007-03812255eecf",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      75,
+      86
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      75,
+      86
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

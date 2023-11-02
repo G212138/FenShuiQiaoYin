@@ -1,5 +1,7 @@
+import { ListenerManager } from '../../../../frame/scripts/Manager/ListenerManager';
 import { SyncData } from '../../../../frame/scripts/Manager/SyncDataManager';
 import BaseGamePanel from '../../../../frame/scripts/UI/Panel/BaseGamePanel';
+import { EventType } from '../../Data/EventType';
 
 const { ccclass, property } = cc._decorator;
 
@@ -22,6 +24,7 @@ export default class GamePanel extends BaseGamePanel {
     protected setPanel() {
         super.setPanel();
         // TODO 业务逻辑
+        ListenerManager.dispatch(EventType.ENTER_GAME);
     }
 
     /**
@@ -30,6 +33,7 @@ export default class GamePanel extends BaseGamePanel {
      */
     protected onRecoveryData(recovery: SyncData): void {
         super.onRecoveryData(recovery);
+        ListenerManager.dispatch(EventType.GAME_RECONNECT);
     }
 
     /**

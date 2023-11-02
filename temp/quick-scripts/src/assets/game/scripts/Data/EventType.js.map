@@ -1,0 +1,1 @@
+{"version":3,"sources":["assets\\game\\scripts\\Data\\EventType.ts"],"names":[],"mappings":";;;;;AAAA;;GAEG;;;AAEH,IAAY,SAGX;AAHD,WAAY,SAAS;IACjB,QAAQ;IACR,oDAAuC,CAAA;AAC3C,CAAC,EAHW,SAAS,GAAT,iBAAS,KAAT,iBAAS,QAGpB","file":"","sourceRoot":"/","sourcesContent":["/**\n * 自定义事件类型\n */\n\nexport enum EventType {\n    // examp\n    ON_BUTTON_CLICKED = 'ON_BUTTON_CLICKED',\n}\n"]}

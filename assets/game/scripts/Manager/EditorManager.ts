@@ -17,7 +17,7 @@ class EditorData {
     // 总步数
     public stepCount: number = 0;
     // 课件等级 0：幼小  1：小低  2：小高
-    public coursewareLevel: number = -1;
+    public coursewareLevel: number = 2;
 
     // TODO 自定义数据
 }
