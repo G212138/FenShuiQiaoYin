@@ -53,6 +53,7 @@ var TeacherPanel = /** @class */ (function (_super) {
         if (this._btn_save) {
             this._btn_save.active = !isEdit;
         }
+        this._btn_save.active = true;
     };
     /**
      * 设置界面（这里已经拿到了网络请求数据）

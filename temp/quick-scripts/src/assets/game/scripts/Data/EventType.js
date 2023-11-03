@@ -14,6 +14,9 @@ var EventType;
     EventType["ON_BUTTON_CLICKED"] = "ON_BUTTON_CLICKED";
     EventType["ENTER_GAME"] = "ENTER_GAME";
     EventType["GAME_RECONNECT"] = "GAME_RECONNECT";
+    EventType["GAME_OVER"] = "GAME_OVER";
+    EventType["SUBMIT"] = "SUBMIT";
+    EventType["GAME_REPLAY"] = "GAME_REPLAY";
 })(EventType = exports.EventType || (exports.EventType = {}));
 
 cc._RF.pop();

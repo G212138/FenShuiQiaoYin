@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "outLine",
+    "texture": "56d65545-27ea-4ed7-b177-e22a9e09c103",
+    "atlas": "",
+    "rect": [
+      9,
+      19,
+      463,
+      812
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      482,
+      850
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

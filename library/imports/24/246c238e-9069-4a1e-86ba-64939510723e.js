@@ -24,6 +24,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var ListenerManager_1 = require("../../../../frame/scripts/Manager/ListenerManager");
+var SyncDataManager_1 = require("../../../../frame/scripts/Manager/SyncDataManager");
 var BaseGamePanel_1 = require("../../../../frame/scripts/UI/Panel/BaseGamePanel");
 var EventType_1 = require("../../Data/EventType");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -34,9 +35,21 @@ var GamePanel = /** @class */ (function (_super) {
     }
     GamePanel.prototype.start = function () {
         _super.prototype.start.call(this);
+        ListenerManager_1.ListenerManager.on(EventType_1.EventType.GAME_OVER, this.gameOver, this);
+        ListenerManager_1.ListenerManager.on(EventType_1.EventType.SUBMIT, this.submit, this);
     };
     GamePanel.prototype.onDestroy = function () {
         _super.prototype.onDestroy.call(this);
+        ListenerManager_1.ListenerManager.off(EventType_1.EventType.GAME_OVER, this.gameOver, this);
+        ListenerManager_1.ListenerManager.off(EventType_1.EventType.SUBMIT, this.submit, this);
+    };
+    GamePanel.prototype.submit = function (isRight) {
+        if (isRight) {
+            this.answerRight(true);
+        }
+        else {
+            this.answerWrong();
+        }
     };
     /**
      * 游戏入口
@@ -84,6 +97,11 @@ var GamePanel = /** @class */ (function (_super) {
      */
     GamePanel.prototype.onReplay = function () {
         _super.prototype.onReplay.call(this);
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_1 = 1;
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = 1;
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = 6;
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr = [];
+        ListenerManager_1.ListenerManager.dispatch(EventType_1.EventType.GAME_REPLAY);
     };
     GamePanel.prototype.update = function (dt) {
         _super.prototype.update.call(this, dt);

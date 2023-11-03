@@ -1,5 +1,5 @@
 import { ListenerManager } from '../../../../frame/scripts/Manager/ListenerManager';
-import { SyncData } from '../../../../frame/scripts/Manager/SyncDataManager';
+import { SyncData, SyncDataManager } from '../../../../frame/scripts/Manager/SyncDataManager';
 import BaseGamePanel from '../../../../frame/scripts/UI/Panel/BaseGamePanel';
 import { EventType } from '../../Data/EventType';
 
@@ -11,10 +11,22 @@ export default class GamePanel extends BaseGamePanel {
 
     start() {
         super.start();
+        ListenerManager.on(EventType.GAME_OVER, this.gameOver, this);
+        ListenerManager.on(EventType.SUBMIT, this.submit, this);
     }
 
     onDestroy() {
         super.onDestroy();
+        ListenerManager.off(EventType.GAME_OVER, this.gameOver, this);
+        ListenerManager.off(EventType.SUBMIT, this.submit, this);
+    }
+
+    private submit(isRight) {
+        if (isRight) {
+            this.answerRight(true);
+        } else {
+            this.answerWrong();
+        }
     }
 
     /**
@@ -67,6 +79,11 @@ export default class GamePanel extends BaseGamePanel {
      */
     protected onReplay() {
         super.onReplay();
+        SyncDataManager.getSyncData().customSyncData.shiguan_1 = 1;
+        SyncDataManager.getSyncData().customSyncData.shiguan_2 = 1;
+        SyncDataManager.getSyncData().customSyncData.shiguan_3 = 6;
+        SyncDataManager.getSyncData().customSyncData.trueArr = [];
+        ListenerManager.dispatch(EventType.GAME_REPLAY);
     }
 
     update(dt) {

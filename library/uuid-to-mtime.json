@@ -34,51 +34,6 @@
     "meta": 1698912008598,
     "relativePath": "frame\\frameRes\\animation\\loadingDot_yingyu.anim"
   },
-  "9c012f90-bda9-43e1-9fdc-87d5778aa758": {
-    "asset": 1698318601000,
-    "meta": 1698912009710,
-    "relativePath": "frame\\frameRes\\audios\\over_yingyu.mp3"
-  },
-  "ce8d967c-261c-4956-8486-0eafbd569ea9": {
-    "asset": 1698318601000,
-    "meta": 1698912009713,
-    "relativePath": "frame\\frameRes\\audios\\over_yuwen.mp3"
-  },
-  "348a19ff-6bb6-4dbf-9f1d-4655840def38": {
-    "asset": 1698318601000,
-    "meta": 1698912009723,
-    "relativePath": "frame\\frameRes\\audios\\sfx_buttn.mp3"
-  },
-  "20a8023e-0c04-4770-afea-4d098b28ff61": {
-    "asset": 1698318601000,
-    "meta": 1698912009727,
-    "relativePath": "frame\\frameRes\\audios\\sfx_error.mp3"
-  },
-  "2f802513-3487-442b-98eb-aebdd2c80484": {
-    "asset": 1698318601000,
-    "meta": 1698912009736,
-    "relativePath": "frame\\frameRes\\audios\\sfx_genneg.mp3"
-  },
-  "828feb16-3a4f-4d01-a9ae-21cbbd3b1f02": {
-    "asset": 1698318601000,
-    "meta": 1698912009741,
-    "relativePath": "frame\\frameRes\\audios\\sfx_genpos.mp3"
-  },
-  "e4753727-e265-4441-b07b-4306643ceccb": {
-    "asset": 1698318601000,
-    "meta": 1698912009750,
-    "relativePath": "frame\\frameRes\\audios\\sfx_geupgrd.mp3"
-  },
-  "b0e3d974-5a3c-47a0-91b9-71f6cfe71638": {
-    "asset": 1698318601000,
-    "meta": 1698912009754,
-    "relativePath": "frame\\frameRes\\audios\\star_good.mp3"
-  },
-  "02f401c1-6230-4bb3-9fac-e92a262f064a": {
-    "asset": 1698318601000,
-    "meta": 1698912009763,
-    "relativePath": "frame\\frameRes\\audios\\star_great.mp3"
-  },
   "5542c967-1f39-486b-a4a6-ec1a5925e53e": {
     "asset": 1698911681833,
     "meta": 1698912009764,
@@ -98,11 +53,6 @@
     "asset": 1698911681652,
     "meta": 1698912009771,
     "relativePath": "frame\\frameRes\\images\\loadingUI\\like"
-  },
-  "6acb4070-49ae-4f85-a51e-cdcc5b8276bc": {
-    "asset": 1698318601000,
-    "meta": 1698912009775,
-    "relativePath": "frame\\frameRes\\audios\\star_perfect.mp3"
   },
   "2368900f-2b7d-4ec8-aef5-f69341bfd7a0": {
     "asset": 1698318601000,
@@ -330,8 +280,8 @@
     "relativePath": "frame\\frameRes\\prefab\\item\\Tip.prefab"
   },
   "82ddc86b-9349-4b96-8dc2-e4196ef30ff7": {
-    "asset": 1698911682032,
-    "meta": 1698912010280,
+    "asset": 1699003419563,
+    "meta": 1699004668895,
     "relativePath": "frame\\frameRes\\prefab\\panel"
   },
   "32a27146-d674-48a9-a96a-531ca6aaadfe": {
@@ -355,9 +305,9 @@
     "relativePath": "frame\\frameRes\\prefab\\panel\\maskMgs.prefab"
   },
   "6c6fad8f-9d09-42a7-bc19-1eafe97b12cc": {
-    "asset": 1698318601000,
-    "meta": 1698912010306,
-    "relativePath": "frame\\frameRes\\prefab\\panel\\OverTips_like.prefab"
+    "asset": 1699003421023,
+    "meta": 1699003421037,
+    "relativePath": "frame\\frameRes\\prefab\\panel\\OverTips.prefab"
   },
   "2bf93db4-55ec-4390-8b53-db85feca6b8e": {
     "asset": 1698318601000,
@@ -909,11 +859,6 @@
     "meta": 1698912012072,
     "relativePath": "frame\\scripts\\UI\\Panel\\AffirmTips.ts"
   },
-  "f1694b3c-0627-46bd-a0a9-ce121e8806df": {
-    "asset": 1698318601000,
-    "meta": 1698912012101,
-    "relativePath": "frame\\scripts\\UI\\Panel\\BaseGamePanel.ts"
-  },
   "878180e5-8bc2-4793-8b5a-6521de4411bd": {
     "asset": 1698318601000,
     "meta": 1698912012118,
@@ -1020,8 +965,8 @@
     "relativePath": "game\\res\\font\\num.TTF"
   },
   "a768c6d7-8f87-4af3-b70c-f9b6e10402d4": {
-    "asset": 1698911683137,
-    "meta": 1698912012514,
+    "asset": 1698994801033,
+    "meta": 1699000040434,
     "relativePath": "game\\res\\images"
   },
   "0b5e47a2-321c-47a3-8def-6736d39cc124": {
@@ -1030,8 +975,8 @@
     "relativePath": "game\\res\\prefab"
   },
   "8ee78c3b-3750-4b85-ae78-2e6151b5290d": {
-    "asset": 1698911683163,
-    "meta": 1698912012517,
+    "asset": 1698917417910,
+    "meta": 1698975725958,
     "relativePath": "game\\res\\spine"
   },
   "bca6c493-1722-4cec-a493-c72cbb079572": {
@@ -1075,24 +1020,19 @@
     "relativePath": "game\\scripts\\SkeletonExt.js"
   },
   "c77e1f05-0085-49fb-a24f-e5878a8aae49": {
-    "asset": 1698911683279,
-    "meta": 1698912012657,
+    "asset": 1698928790233,
+    "meta": 1698975725962,
     "relativePath": "game\\scripts\\UI"
   },
   "8f7db10f-9e72-428b-8116-f3e3789bb202": {
-    "asset": 1698911683275,
-    "meta": 1698912012659,
+    "asset": 1698979244449,
+    "meta": 1699000040434,
     "relativePath": "game\\scripts\\UI\\Item"
   },
   "49e666fd-416e-4b31-8b41-c976fc0b0de9": {
     "asset": 1698911683296,
     "meta": 1698912012661,
     "relativePath": "game\\scripts\\UI\\panel"
-  },
-  "70c27101-9967-4f25-8b60-310f5dc8f652": {
-    "asset": 1698318601000,
-    "meta": 1698912012708,
-    "relativePath": "game\\scripts\\UI\\panel\\TeacherPanel.ts"
   },
   "46266a0e-071b-456a-946e-33372125d0e1": {
     "asset": 1698911683402,
@@ -1105,8 +1045,8 @@
     "relativePath": "game\\res\\spine\\laba\\laba.json"
   },
   "1babe9ab-342f-433c-9c4e-e9aa15e61eb4": {
-    "asset": 1698911683323,
-    "meta": 1698912012712,
+    "asset": 1698980425292,
+    "meta": 1699000040449,
     "relativePath": "resources\\audios"
   },
   "39c9aeab-df8f-42bf-9a91-bbb835fdfeb5": {
@@ -1135,8 +1075,8 @@
     "relativePath": "resources\\prefab\\ui\\Item\\levelProgress.prefab"
   },
   "fc711fc5-58be-4f49-8283-34d294eff399": {
-    "asset": 1698911683397,
-    "meta": 1698912012727,
+    "asset": 1699004727621,
+    "meta": 1699004735393,
     "relativePath": "resources\\prefab\\ui\\panel"
   },
   "0f5eca10-139c-4d37-8f42-37917ee81cd1": {
@@ -1145,19 +1085,14 @@
     "relativePath": "resources\\prefab\\ui\\Item\\titleBoard.prefab"
   },
   "32f855fb-ac45-4a70-9924-652cc84cf88d": {
-    "asset": 1698934111960,
-    "meta": 1698934111977,
+    "asset": 1699004648403,
+    "meta": 1699004648423,
     "relativePath": "resources\\prefab\\ui\\panel\\GamePanel.prefab"
   },
   "874ae5ab-34b2-47a1-bea2-2bd751b5135e": {
     "asset": 1698911683406,
     "meta": 1698912012736,
     "relativePath": "resources\\preload"
-  },
-  "62af3dd2-526f-4df6-81ef-c3b28cf4a879": {
-    "asset": 1698318601000,
-    "meta": 1698912012740,
-    "relativePath": "resources\\prefab\\ui\\panel\\TeacherPanel.prefab"
   },
   "2e0d07d9-6e77-43a1-8baf-c09002e08d1e": {
     "asset": 1698917127975,
@@ -1240,13 +1175,13 @@
     "relativePath": "game\\res\\images\\img_yinzhang.png"
   },
   "b4ba9336-3f90-4a25-9d2d-f732fa6adafc": {
-    "asset": 1698917417917,
-    "meta": 1698917417920,
+    "asset": 1698928131660,
+    "meta": 1698975725960,
     "relativePath": "game\\res\\spine\\3寒_7讲_分水敲音 瓶身动画与成功动画"
   },
   "b2ee0042-da5d-4fa7-8ee7-b8cdbbf4e20e": {
-    "asset": 1698919640622,
-    "meta": 1698919654273,
+    "asset": 1699004727621,
+    "meta": 1699004735390,
     "relativePath": "game\\scripts\\Data\\ConstValue.ts"
   },
   "64363460-bd77-4224-9769-7b1450bfcf4f": {
@@ -1258,16 +1193,6 @@
     "asset": 1698922492960,
     "meta": 1698922493041,
     "relativePath": "game\\res\\images\\bg_beijing.png"
-  },
-  "9cd01690-35b1-4c51-8e2c-50c374c981f9": {
-    "asset": 1698922912085,
-    "meta": 1698922920251,
-    "relativePath": "frame\\scripts\\Http\\NetWork.ts"
-  },
-  "9d48be3c-b2aa-4476-8cce-9db39c542001": {
-    "asset": 1698923141722,
-    "meta": 1698923277743,
-    "relativePath": "game\\scripts\\Data\\EventType.ts"
   },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
     "asset": 1672495621939,
@@ -1769,11 +1694,6 @@
     "meta": 1698927229602,
     "relativePath": "model\\primitives.fbx"
   },
-  "f6665ca6-d089-4935-82aa-e1d6bf4c79b0": {
-    "asset": 1698927622542,
-    "meta": 1698927693345,
-    "relativePath": "game\\scripts\\Data\\CustomSyncData.ts"
-  },
   "715541eb-6a6a-46df-ab9d-7c00e1c943a9": {
     "asset": 1698928131660,
     "meta": 1698928131728,
@@ -1790,8 +1710,8 @@
     "relativePath": "game\\res\\spine\\3寒_7讲_分水敲音 瓶身动画与成功动画\\img_shiguan.json"
   },
   "939da28a-034e-474d-84f2-d1aa1468273a": {
-    "asset": 1698928788562,
-    "meta": 1698928788599,
+    "asset": 1698928814033,
+    "meta": 1698975725964,
     "relativePath": "game\\scripts\\UI\\Components"
   },
   "219dcd6b-0d32-428d-8589-849350171209": {
@@ -1814,14 +1734,124 @@
     "meta": 1698929407856,
     "relativePath": "game\\res\\images\\img_cuowu.png"
   },
+  "70c27101-9967-4f25-8b60-310f5dc8f652": {
+    "asset": 1698979735942,
+    "meta": 1698980419812,
+    "relativePath": "game\\scripts\\UI\\panel\\TeacherPanel.ts"
+  },
+  "7a607c6a-1272-43e7-8151-7d3881d684c7": {
+    "asset": 1698980475916,
+    "meta": 1698985771462,
+    "relativePath": "game\\scripts\\UI\\Item\\SoundConfig.ts"
+  },
+  "56d65545-27ea-4ed7-b177-e22a9e09c103": {
+    "asset": 1698994801026,
+    "meta": 1698994801182,
+    "relativePath": "game\\res\\images\\outLine.png"
+  },
+  "f1694b3c-0627-46bd-a0a9-ce121e8806df": {
+    "asset": 1699003488767,
+    "meta": 1699003490250,
+    "relativePath": "frame\\scripts\\UI\\Panel\\BaseGamePanel.ts"
+  },
+  "9d48be3c-b2aa-4476-8cce-9db39c542001": {
+    "asset": 1699003571961,
+    "meta": 1699003718007,
+    "relativePath": "game\\scripts\\Data\\EventType.ts"
+  },
   "246c238e-9069-4a1e-86ba-64939510723e": {
-    "asset": 1698931978286,
-    "meta": 1698932004222,
+    "asset": 1699003688099,
+    "meta": 1699003718301,
     "relativePath": "game\\scripts\\UI\\panel\\GamePanel.ts"
   },
+  "f6665ca6-d089-4935-82aa-e1d6bf4c79b0": {
+    "asset": 1699004004912,
+    "meta": 1699004163234,
+    "relativePath": "game\\scripts\\Data\\CustomSyncData.ts"
+  },
+  "9cd01690-35b1-4c51-8e2c-50c374c981f9": {
+    "asset": 1699004534548,
+    "meta": 1699004536236,
+    "relativePath": "frame\\scripts\\Http\\NetWork.ts"
+  },
   "f73c5e85-9e65-4962-9bf8-ec0ecef06159": {
-    "asset": 1698934003319,
-    "meta": 1698934004701,
+    "asset": 1699004507607,
+    "meta": 1699004536409,
     "relativePath": "game\\scripts\\UI\\Item\\GameUI.ts"
+  },
+  "ce8d967c-261c-4956-8486-0eafbd569ea9": {
+    "asset": 1698318601000,
+    "meta": 1699004656956,
+    "relativePath": "frame\\frameRes\\audios\\over_yuwen.mp3"
+  },
+  "9c012f90-bda9-43e1-9fdc-87d5778aa758": {
+    "asset": 1698318601000,
+    "meta": 1699004656989,
+    "relativePath": "frame\\frameRes\\audios\\over_yingyu.mp3"
+  },
+  "348a19ff-6bb6-4dbf-9f1d-4655840def38": {
+    "asset": 1698318601000,
+    "meta": 1699004657020,
+    "relativePath": "frame\\frameRes\\audios\\sfx_buttn.mp3"
+  },
+  "20a8023e-0c04-4770-afea-4d098b28ff61": {
+    "asset": 1698318601000,
+    "meta": 1699004657052,
+    "relativePath": "frame\\frameRes\\audios\\sfx_error.mp3"
+  },
+  "e4753727-e265-4441-b07b-4306643ceccb": {
+    "asset": 1698318601000,
+    "meta": 1699004657088,
+    "relativePath": "frame\\frameRes\\audios\\sfx_geupgrd.mp3"
+  },
+  "2f802513-3487-442b-98eb-aebdd2c80484": {
+    "asset": 1698318601000,
+    "meta": 1699004657125,
+    "relativePath": "frame\\frameRes\\audios\\sfx_genneg.mp3"
+  },
+  "828feb16-3a4f-4d01-a9ae-21cbbd3b1f02": {
+    "asset": 1698318601000,
+    "meta": 1699004657153,
+    "relativePath": "frame\\frameRes\\audios\\sfx_genpos.mp3"
+  },
+  "b0e3d974-5a3c-47a0-91b9-71f6cfe71638": {
+    "asset": 1698318601000,
+    "meta": 1699004657184,
+    "relativePath": "frame\\frameRes\\audios\\star_good.mp3"
+  },
+  "abd6202c-f67d-421c-83d5-dbdc5b3657b2": {
+    "asset": 1698979327765,
+    "meta": 1699004657215,
+    "relativePath": "resources\\audios\\正确音效.mp3"
+  },
+  "6acb4070-49ae-4f85-a51e-cdcc5b8276bc": {
+    "asset": 1698318601000,
+    "meta": 1699004657245,
+    "relativePath": "frame\\frameRes\\audios\\star_perfect.mp3"
+  },
+  "7a85357b-7f67-46bb-a7c2-370e50370d1e": {
+    "asset": 1698979320324,
+    "meta": 1699004657273,
+    "relativePath": "resources\\audios\\点击音效.mp3"
+  },
+  "02f401c1-6230-4bb3-9fac-e92a262f064a": {
+    "asset": 1698318601000,
+    "meta": 1699004657297,
+    "relativePath": "frame\\frameRes\\audios\\star_great.mp3"
+  },
+  "ab5091ff-13df-493c-b515-d053909ad86f": {
+    "asset": 1698979320350,
+    "meta": 1699004657322,
+    "relativePath": "resources\\audios\\错误音效.mp3"
+  },
+  "a625ef73-082f-4892-ac84-1d03f6907f0f": {
+    "asset": 1698980425287,
+    "meta": 1699004657347,
+    "relativePath": "resources\\audios\\照相机咔嚓音效.mp3"
+  },
+  "62af3dd2-526f-4df6-81ef-c3b28cf4a879": {
+    "asset": 1698318601000,
+    "meta": 1699004735791,
+    "relativePath": "resources\\prefab\\ui\\panel\\TeacherPanel.prefab"
   }
 }

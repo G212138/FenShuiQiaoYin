@@ -36,6 +36,7 @@ export default class TeacherPanel extends BaseTeacherPanel {
         if (this._btn_save) {
             this._btn_save.active = !isEdit;
         }
+        this._btn_save.active = true;
     }
 
     /**

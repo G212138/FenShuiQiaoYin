@@ -1,7 +1,10 @@
 import { ListenerManager } from "../../../../frame/scripts/Manager/ListenerManager";
+import { SoundManager } from "../../../../frame/scripts/Manager/SoundManager";
 import { SyncDataManager } from "../../../../frame/scripts/Manager/SyncDataManager";
 import { Tools } from "../../../../frame/scripts/Utils/Tools";
+import { UIHelp } from "../../../../frame/scripts/Utils/UIHelp";
 import { EventType } from "../../Data/EventType";
+import { SoundConfig } from "./SoundConfig";
 
 const { ccclass, property } = cc._decorator;
 
@@ -19,6 +22,8 @@ export default class GameUI extends cc.Component {
     private btn_xiangji: cc.Node = null;
     @property(cc.Node)
     private btn_tijiao: cc.Node = null;
+    @property(cc.Node)
+    private shot_node: cc.Node = null;
 
     private shiguan_posY = -250;
     private rightArea_posX = 723;
@@ -31,11 +36,13 @@ export default class GameUI extends cc.Component {
     onLoad() {
         ListenerManager.on(EventType.ENTER_GAME, this.handleEnterGame, this);
         ListenerManager.on(EventType.GAME_RECONNECT, this.initUI, this);
+        ListenerManager.on(EventType.GAME_REPLAY, this.handleEnterGame, this);
     }
 
     onDestroy() {
         ListenerManager.off(EventType.ENTER_GAME, this.handleEnterGame, this);
         ListenerManager.off(EventType.GAME_RECONNECT, this.initUI, this);
+        ListenerManager.off(EventType.GAME_REPLAY, this.handleEnterGame, this);
     }
 
     private handleEnterGame() {
@@ -47,6 +54,36 @@ export default class GameUI extends cc.Component {
     private initUI() {
         this.initShiguan();
         this.updateBtnState();
+
+        for (let i = 0; i < this.shiguanNode.length; i++) {
+            this.shiguanNode[i].y = this.shiguan_posY;
+        }
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = !SyncDataManager.getSyncData().customSyncData.shotEnable;
+        this.btn_xiangji.opacity = 255;
+        this.btn_tijiao.opacity = 255;
+        let outLine = this.node.getChildByName("outLine");
+        outLine.active = false;
+        cc.Tween.stopAllByTarget(this.rightArea);
+        this.rightArea.x = this.rightArea_posX;
+        for (let i = 0; i < this.rightArea.childrenCount; i++) {
+            let trueNode = this.rightArea.children[i];
+            this.rightArea.children[i].active = false;
+            let cuowu = trueNode.getChildByName("img_cuowu");
+            cuowu.active = false;
+        }
+
+        for (let i = 0; i < SyncDataManager.getSyncData().customSyncData.trueArr.length; i++) {
+            let arr = SyncDataManager.getSyncData().customSyncData.trueArr[i];
+            let trueNode = this.rightArea.children[i];
+            trueNode.active = true;
+            trueNode.getChildByName("shiguan_1").getComponent(sp.Skeleton).animation = arr[0] + "idle";
+            trueNode.getChildByName("shiguan_2").getComponent(sp.Skeleton).animation = arr[1] + "idle";
+            trueNode.getChildByName("shiguan_3").getComponent(sp.Skeleton).animation = arr[2] + "idle";
+            trueNode.getChildByName("lbl_shiguan_1").getComponent(cc.Label).string = arr[0].toString();
+            trueNode.getChildByName("lbl_shiguan_2").getComponent(cc.Label).string = arr[1].toString();
+            trueNode.getChildByName("lbl_shiguan_3").getComponent(cc.Label).string = arr[2].toString();
+        }
+        this.node.getChildByName("img_yinzhang").active = SyncDataManager.getSyncData().frameSyncData.isGameOver;
     }
 
     private initShiguan() {
@@ -90,6 +127,10 @@ export default class GameUI extends cc.Component {
 
     private onClickShiguan_1_add() {
         if (this.shiguan_1 >= 6 || this.shiguan_3 < 1) return;
+        SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
+        SyncDataManager.getSyncData().customSyncData.shotEnable = true;
         this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
         this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
         this.shiguan_1++;
@@ -101,6 +142,10 @@ export default class GameUI extends cc.Component {
 
     private onClickShiguan_1_sub() {
         if (this.shiguan_3 == 6 || this.shiguan_1 == 1) return;
+        SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
+        SyncDataManager.getSyncData().customSyncData.shotEnable = true;
         this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
         this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
         this.shiguan_1--;
@@ -112,6 +157,10 @@ export default class GameUI extends cc.Component {
 
     private onClickShiguan_2_add() {
         if (this.shiguan_2 >= 6 || this.shiguan_3 < 1) return;
+        SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
+        SyncDataManager.getSyncData().customSyncData.shotEnable = true;
         this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
         this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
         this.shiguan_2++;
@@ -123,6 +172,10 @@ export default class GameUI extends cc.Component {
 
     private onClickShiguan_2_sub() {
         if (this.shiguan_3 == 6 || this.shiguan_2 == 1) return;
+        SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
+        SyncDataManager.getSyncData().customSyncData.shotEnable = true;
         this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
         this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
         this.shiguan_2--;
@@ -155,7 +208,15 @@ export default class GameUI extends cc.Component {
         });
     }
 
+    private isShot: boolean = false;
     private onClickShot() {
+        UIHelp.showMask();
+        if (this.isShot) return;
+        this.isShot = true;
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = true;
+        SyncDataManager.getSyncData().customSyncData.shotEnable = false;
+        SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
         let arr = [this.shiguan_1, this.shiguan_2, this.shiguan_3];
         arr.sort((a, b) => {
             return a - b;
@@ -167,10 +228,117 @@ export default class GameUI extends cc.Component {
         this.shiguan_1 = arr[0];
         this.shiguan_2 = arr[1];
         this.shiguan_3 = arr[2];
+        this.updateBtnState();
+        //判断SyncDataManager.getSyncData().customSyncData.trueArr中是否有arr
+        let isHave = false;
+        let index = 0;
+        for (let i = 0; i < SyncDataManager.getSyncData().customSyncData.trueArr.length; i++) {
+            let trueArr = SyncDataManager.getSyncData().customSyncData.trueArr[i];
+            if (trueArr[0] == arr[0] && trueArr[1] == arr[1] && trueArr[2] == arr[2]) {
+                isHave = true;
+                index = i;
+                break;
+            }
+        }
+        if (isHave) {
+            this.handleWrong(index);
+        } else {
+            this.handleTrue(arr);
+        }
+    }
+
+    private handleWrong(index: number) {
+        SoundManager.stopSoundByName(SoundConfig.soudlist["错误音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["错误音效"], false, false, false);
+        let trueNode = this.rightArea.children[index];
+        this.isShot = false;
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = true;
+        SyncDataManager.getSyncData().customSyncData.shotEnable = false;
+        let cuowu = trueNode.getChildByName("img_cuowu");
+        cuowu.active = true;
+        cc.tween(cuowu).to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
+            .to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
+            .to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
+            .call(() => {
+                UIHelp.closeMask();
+            })
+            .start();
+
+    }
+
+    private handleTrue(arr: number[]) {
+        this.shot_node.scale = 1;
+        this.shot_node.x = -300;
+        this.shot_node.y = 0;
+        this.shot_node.active = true;
+        let targetIndex = SyncDataManager.getSyncData().customSyncData.trueArr.length;
+        //this.shot_node移动到rightArea.children[targetIndex]位置
+        let targetPos = this.rightArea.children[targetIndex].position;
+        let endPos = cc.v3(this.rightArea_posX, targetPos.y);
+        cc.tween(this.shot_node).to(0.5, { position: endPos, scale: 0.23 }).call(() => {
+            this.shot_node.active = false;
+            this.handleShowTrueNode(targetIndex, arr);
+            this.isShot = false;
+            UIHelp.closeMask();
+        }).start();
+    }
+
+    private handleShowTrueNode(index, arr: number[]) {
+        SyncDataManager.getSyncData().customSyncData.trueArr.push(arr);
+        let trueNode = this.rightArea.children[index];
+        trueNode.active = true;
+        trueNode.getChildByName("shiguan_1").getComponent(sp.Skeleton).animation = arr[0] + "idle";
+        trueNode.getChildByName("shiguan_2").getComponent(sp.Skeleton).animation = arr[1] + "idle";
+        trueNode.getChildByName("shiguan_3").getComponent(sp.Skeleton).animation = arr[2] + "idle";
+        trueNode.getChildByName("lbl_shiguan_1").getComponent(cc.Label).string = arr[0].toString();
+        trueNode.getChildByName("lbl_shiguan_2").getComponent(cc.Label).string = arr[1].toString();
+        trueNode.getChildByName("lbl_shiguan_3").getComponent(cc.Label).string = arr[2].toString();
     }
 
     private onClickSubmit() {
+        SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
+        SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
+        if (SyncDataManager.getSyncData().customSyncData.trueArr.length < 5) {
+            ListenerManager.dispatch(EventType.SUBMIT, false);
+            SoundManager.stopSoundByName(SoundConfig.soudlist["错误音效"]);
+            SoundManager.playEffect(SoundConfig.soudlist["错误音效"], false, false, false);
+            UIHelp.showMask();
+            UIHelp.showTip("还有分法没有找到哦！");
+            // this.scheduleOnce(() => {
+            //     UIHelp.closeMask();
+            // }, 1);
+            //this.rightArea轻微抖动
+            cc.tween(this.rightArea).to(0.1, { x: this.rightArea_posX + 5 }).to(0.1, { x: this.rightArea_posX - 5 })
+                .to(0.1, { x: this.rightArea_posX + 5 })
+                .to(0.1, { x: this.rightArea_posX - 5 })
+                .to(0.1, { x: this.rightArea_posX }).start();
+            let outLine = this.node.getChildByName("outLine");
+            outLine.active = true;
+            cc.tween(outLine).to(0.1, { x: this.rightArea_posX + 5 }).to(0.1, { x: this.rightArea_posX - 5 })
+                .to(0.1, { x: this.rightArea_posX + 5 })
+                .to(0.1, { x: this.rightArea_posX - 5 })
+                .to(0.1, { x: this.rightArea_posX }).start();
+            cc.tween(outLine).to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
+                .to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
+                .to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
+                .call(() => {
+                    UIHelp.closeMask();
+                })
+                .start();
+        } else {
+            ListenerManager.dispatch(EventType.SUBMIT, true);
+            let img_yinzhang = this.node.getChildByName("img_yinzhang");
+            //img_yinzhang做一种往下砸的动画
+            img_yinzhang.active = true;
+            img_yinzhang.scale = 3;
+            cc.tween(img_yinzhang).to(0.1, { scale: 1 }).call(() => {
+                this.gameOver();
+            }).start();
+        }
+    }
 
+    private gameOver() {
+        ListenerManager.dispatch(EventType.GAME_OVER);
     }
 
 }

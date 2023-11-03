@@ -57,6 +57,7 @@ require('./assets/game/scripts/Manager/GameManager');
 require('./assets/game/scripts/SkeletonExt');
 require('./assets/game/scripts/UI/Components/ButtonSync');
 require('./assets/game/scripts/UI/Item/GameUI');
+require('./assets/game/scripts/UI/Item/SoundConfig');
 require('./assets/game/scripts/UI/panel/GamePanel');
 require('./assets/game/scripts/UI/panel/TeacherPanel');
 

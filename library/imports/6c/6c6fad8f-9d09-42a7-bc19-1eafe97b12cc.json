@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "OverTips_like",
+    "_name": "OverTips",
     "_objFlags": 0,
     "_native": "",
     "data": {

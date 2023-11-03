@@ -8,4 +8,7 @@ export enum EventType {
 
     ENTER_GAME = 'ENTER_GAME',
     GAME_RECONNECT = "GAME_RECONNECT",
+    GAME_OVER = "GAME_OVER",
+    SUBMIT = "SUBMIT",
+    GAME_REPLAY = "GAME_REPLAY",
 }
