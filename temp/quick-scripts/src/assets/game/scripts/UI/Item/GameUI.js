@@ -49,6 +49,7 @@ var GameUI = /** @class */ (function (_super) {
         _this.shiguan_3 = 6;
         _this.allTrueArr = [[1, 1, 6], [1, 2, 5], [1, 3, 4], [2, 2, 4], [2, 3, 3]];
         _this.isShot = false;
+        _this.needChangeShiguan = false;
         return _this;
     }
     GameUI.prototype.onLoad = function () {
@@ -63,6 +64,13 @@ var GameUI = /** @class */ (function (_super) {
     };
     GameUI.prototype.handleEnterGame = function () {
         this.initUI();
+        this.shiguanLabel[0].string = "0";
+        this.shiguanLabel[1].string = "0";
+        this.shiguanLabel[2].string = "0";
+        this.btnAddAndSub[1].getChildByName("disable").active = true;
+        this.btnAddAndSub[3].getChildByName("disable").active = true;
+        this.btnAddAndSub[0].getChildByName("disable").active = true;
+        this.btnAddAndSub[2].getChildByName("disable").active = true;
         this.gameStartAni();
     };
     GameUI.prototype.initUI = function () {
@@ -122,6 +130,7 @@ var GameUI = /** @class */ (function (_super) {
             cc.tween(_this.shiguanNode[2]).delay(0.4).to(0.5, { y: _this.shiguan_posY }).call(function () {
                 cc.tween(_this.btn_xiangji).to(0.5, { opacity: 255 }).start();
                 cc.tween(_this.btn_tijiao).to(0.5, { opacity: 255 }).start();
+                _this.updateBtnState();
             }).start();
         }).start();
     };
@@ -139,11 +148,26 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
-        this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
+        if (this.needChangeShiguan) {
+            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
+        }
+        else {
+            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
+            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
+        }
         this.shiguan_1++;
-        this.shiguan_3--;
+        if (this.needChangeShiguan) {
+            this.needChangeShiguan = false;
+            this.shiguan_2 = 1;
+            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
+            this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
+            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
+        }
+        else {
+            this.shiguan_3--;
+        }
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_1 = this.shiguan_1;
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
         this.updateBtnState();
     };
@@ -154,11 +178,26 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
-        this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
+        if (this.needChangeShiguan) {
+            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
+        }
+        else {
+            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
+            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
+        }
         this.shiguan_1--;
-        this.shiguan_3++;
+        if (this.needChangeShiguan) {
+            this.needChangeShiguan = false;
+            this.shiguan_2 = 1;
+            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
+            this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
+            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
+        }
+        else {
+            this.shiguan_3++;
+        }
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_1 = this.shiguan_1;
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
         this.updateBtnState();
     };
@@ -169,10 +208,25 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
-        this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
+        if (this.needChangeShiguan) {
+            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
+        }
+        else {
+            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
+            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
+        }
         this.shiguan_2++;
-        this.shiguan_3--;
+        if (this.needChangeShiguan) {
+            this.needChangeShiguan = false;
+            this.shiguan_1 = 1;
+            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
+            this.setShiguan_idle(this.shiguanNode[0], this.shiguan_1);
+            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
+        }
+        else {
+            this.shiguan_3--;
+        }
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
         this.updateBtnState();
@@ -184,10 +238,25 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
-        this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
+        if (this.needChangeShiguan) {
+            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
+        }
+        else {
+            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
+            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
+        }
         this.shiguan_2--;
-        this.shiguan_3++;
+        if (this.needChangeShiguan) {
+            this.needChangeShiguan = false;
+            this.shiguan_1 = 1;
+            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
+            this.setShiguan_idle(this.shiguanNode[0], this.shiguan_1);
+            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
+        }
+        else {
+            this.shiguan_3++;
+        }
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
         this.updateBtnState();
@@ -216,14 +285,51 @@ var GameUI = /** @class */ (function (_super) {
         if (this.isShot)
             return;
         this.isShot = true;
-        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = true;
-        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = false;
         SoundManager_1.SoundManager.stopSoundByName(SoundConfig_1.SoundConfig.soudlist["点击音效"]);
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
+        this.node.getChildByName("btn_paizhao").getChildByName("disable").active = true;
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = false;
         var arr = [this.shiguan_1, this.shiguan_2, this.shiguan_3];
+        var newArr = [];
         arr.sort(function (a, b) {
             return a - b;
         });
+        for (var i = 0; i < arr.length; i++) {
+            newArr.push(arr[i]);
+        }
+        console.log("arr1 = ", newArr);
+        var oldArr = [this.shiguan_1, this.shiguan_2, this.shiguan_3];
+        var need_change_index = [];
+        for (var i = 0; i < newArr.length; i++) {
+            if (oldArr[i] != newArr[i]) {
+                need_change_index.push(i);
+            }
+        }
+        if (need_change_index.length > 0) {
+            for (var i = 0; i < need_change_index.length; i++) {
+                var shiguan = this.shiguanNode[need_change_index[i]];
+                var endPos = this.shiguanNode[need_change_index[need_change_index.length - i - 1]].position;
+                this.changeShiguanAni(shiguan, endPos, newArr);
+            }
+        }
+        else {
+            this.resetAni(newArr);
+        }
+    };
+    GameUI.prototype.changeShiguanAni = function (node, endPos, arr) {
+        var _this = this;
+        //用贝塞尔曲线移动到目标位置
+        var startPos = node.position;
+        var controlPos = cc.v3(startPos.x, endPos.y + 230);
+        cc.tween(node)
+            .then(cc.bezierTo(2, [cc.v2(startPos), cc.v2(controlPos), cc.v2(endPos)]).easing(cc.easeSineOut()))
+            .call(function () {
+            node.position = startPos;
+            _this.resetAni(arr);
+        })
+            .start();
+    };
+    GameUI.prototype.resetAni = function (arr) {
         for (var i = 0; i < 3; i++) {
             this.setShiguan_idle(this.shiguanNode[i], arr[i]);
             this.setShiguan_lbl(this.shiguanLabel[i], arr[i]);
@@ -243,6 +349,8 @@ var GameUI = /** @class */ (function (_super) {
                 break;
             }
         }
+        SoundManager_1.SoundManager.stopSoundByName(SoundConfig_1.SoundConfig.soudlist["照相机咔嚓音效"]);
+        SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["照相机咔嚓音效"], false, false, false);
         if (isHave) {
             this.handleWrong(index);
         }
@@ -269,12 +377,14 @@ var GameUI = /** @class */ (function (_super) {
     };
     GameUI.prototype.handleTrue = function (arr) {
         var _this = this;
+        this.needChangeShiguan = true;
         this.shot_node.scale = 1;
         this.shot_node.x = -300;
         this.shot_node.y = 0;
         this.shot_node.active = true;
         var targetIndex = SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length;
         //this.shot_node移动到rightArea.children[targetIndex]位置
+        console.log("SyncDataManager.getSyncData().customSyncData.trueArr = " + SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr);
         var targetPos = this.rightArea.children[targetIndex].position;
         var endPos = cc.v3(this.rightArea_posX, targetPos.y);
         cc.tween(this.shot_node).to(0.5, { position: endPos, scale: 0.23 }).call(function () {
@@ -286,6 +396,7 @@ var GameUI = /** @class */ (function (_super) {
     };
     GameUI.prototype.handleShowTrueNode = function (index, arr) {
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.push(arr);
+        console.log("arr = " + arr);
         var trueNode = this.rightArea.children[index];
         trueNode.active = true;
         trueNode.getChildByName("shiguan_1").getComponent(sp.Skeleton).animation = arr[0] + "idle";
@@ -333,6 +444,8 @@ var GameUI = /** @class */ (function (_super) {
             //img_yinzhang做一种往下砸的动画
             img_yinzhang.active = true;
             img_yinzhang.scale = 3;
+            this.btn_xiangji.opacity = 0;
+            this.btn_tijiao.opacity = 0;
             cc.tween(img_yinzhang).to(0.1, { scale: 1 }).call(function () {
                 _this.gameOver();
             }).start();

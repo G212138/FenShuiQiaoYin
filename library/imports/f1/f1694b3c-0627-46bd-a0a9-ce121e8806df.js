@@ -118,12 +118,13 @@ var BaseGamePanel = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.stopAll();
         var isShowReplay = EditorManager_1.EditorManager.editorData.isReplay &&
             SyncDataManager_1.SyncDataManager.syncData.frameSyncData.hasReplayCount < EditorManager_1.EditorManager.editorData.replayCount;
-        // if (EditorManager.editorData.isStarCount) {
-        //     UIHelp.showStarCount(isShowReplay);
-        // } else {
-        var str = 1 === EditorManager_1.EditorManager.getLevelCount() ? '挑战成功' : '闯关成功';
-        UIHelp_1.UIHelp.showOverTips(2, '', null, str, isShowReplay);
-        // }
+        if (EditorManager_1.EditorManager.editorData.isStarCount) {
+            UIHelp_1.UIHelp.showStarCount(isShowReplay);
+        }
+        else {
+            var str = 1 === EditorManager_1.EditorManager.getLevelCount() ? '挑战成功' : '闯关成功';
+            UIHelp_1.UIHelp.showOverTips(2, '', null, str, isShowReplay);
+        }
     };
     BaseGamePanel.prototype.onGameShow = function () {
         if (this._isPanelReady) {

@@ -103,12 +103,12 @@ export default class BaseGamePanel extends BaseUI {
         let isShowReplay: boolean =
             EditorManager.editorData.isReplay &&
             SyncDataManager.syncData.frameSyncData.hasReplayCount < EditorManager.editorData.replayCount;
-        // if (EditorManager.editorData.isStarCount) {
-        //     UIHelp.showStarCount(isShowReplay);
-        // } else {
+        if (EditorManager.editorData.isStarCount) {
+            UIHelp.showStarCount(isShowReplay);
+        } else {
             let str = 1 === EditorManager.getLevelCount() ? '挑战成功' : '闯关成功';
             UIHelp.showOverTips(2, '', null, str, isShowReplay);
-        // }
+        }
     }
 
     private onGameShow() {

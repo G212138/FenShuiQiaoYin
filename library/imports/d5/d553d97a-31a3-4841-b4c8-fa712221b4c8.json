@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "StarCount_like",
+    "_name": "StarCount",
     "_objFlags": 0,
     "_native": "",
     "data": {
