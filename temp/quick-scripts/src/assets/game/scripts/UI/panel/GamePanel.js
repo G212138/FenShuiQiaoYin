@@ -101,6 +101,7 @@ var GamePanel = /** @class */ (function (_super) {
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = 1;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = 6;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr = [];
+        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
         ListenerManager_1.ListenerManager.dispatch(EventType_1.EventType.GAME_REPLAY);
     };
     GamePanel.prototype.update = function (dt) {

@@ -149,24 +149,12 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
-        }
-        else {
-            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
-            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
-        }
+        this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
         this.shiguan_1++;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
-            this.shiguan_2 = 1;
-            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
-            this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
-            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
-        }
-        else {
-            this.shiguan_3--;
-        }
+        this.shiguan_2 = 1;
+        this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
+        this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
+        this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_1 = this.shiguan_1;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -179,24 +167,12 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
-        }
-        else {
-            this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
-            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
-        }
+        this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
         this.shiguan_1--;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
-            this.shiguan_2 = 1;
-            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
-            this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
-            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
-        }
-        else {
-            this.shiguan_3++;
-        }
+        this.shiguan_2 = 1;
+        this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
+        this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
+        this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_1 = this.shiguan_1;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -209,24 +185,10 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
-        }
-        else {
-            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
-            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
-        }
+        this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
+        this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
         this.shiguan_2++;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
-            this.shiguan_1 = 1;
-            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
-            this.setShiguan_idle(this.shiguanNode[0], this.shiguan_1);
-            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
-        }
-        else {
-            this.shiguan_3--;
-        }
+        this.shiguan_3--;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -239,24 +201,10 @@ var GameUI = /** @class */ (function (_super) {
         SoundManager_1.SoundManager.playEffect(SoundConfig_1.SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
-        }
-        else {
-            this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
-            this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
-        }
+        this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
+        this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
         this.shiguan_2--;
-        if (SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
-            SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
-            this.shiguan_1 = 1;
-            this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
-            this.setShiguan_idle(this.shiguanNode[0], this.shiguan_1);
-            this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
-        }
-        else {
-            this.shiguan_3++;
-        }
+        this.shiguan_3++;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -324,7 +272,6 @@ var GameUI = /** @class */ (function (_super) {
         }
     };
     GameUI.prototype.changeShiguanAni = function (node, endPos, arr) {
-        //用贝塞尔曲线移动到目标位置
         var startPos = node.position;
         var controlPos = cc.v3(startPos.x, endPos.y + 230);
         cc.tween(node)
@@ -344,7 +291,6 @@ var GameUI = /** @class */ (function (_super) {
         this.shiguan_2 = arr[1];
         this.shiguan_3 = arr[2];
         this.updateBtnState();
-        //判断SyncDataManager.getSyncData().customSyncData.trueArr中是否有arr
         var isHave = false;
         var index = 0;
         for (var i = 0; i < SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length; i++) {
@@ -401,8 +347,6 @@ var GameUI = /** @class */ (function (_super) {
     };
     GameUI.prototype.handleTrue = function (arr) {
         var _this = this;
-        SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.needChangeShiguan = true;
-        //先根据arr在allTrueArr中的数据找到最终的位置
         var trueIndex = 0;
         for (var i = 0; i < this.allTrueArr.length; i++) {
             var trueArr = this.allTrueArr[i];
@@ -411,12 +355,15 @@ var GameUI = /** @class */ (function (_super) {
                 break;
             }
         }
+        console.log("trueIndex", trueIndex);
+        var index = Number(SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length);
         for (var i = 0; i < this.allTrueArr.length; i++) {
             var trueArr = this.allTrueArr[i];
             var _loop_1 = function (j) {
                 var arr_1 = SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr[j];
                 if (trueArr[0] == arr_1[0] && trueArr[1] == arr_1[1] && trueArr[2] == arr_1[2]) {
                     if (i > trueIndex) {
+                        index--;
                         var trueNode_1 = this_1.rightArea.children[j];
                         var selfPos_1 = cc.v3(trueNode_1.position);
                         var nextTrueNode = this_1.rightArea.children[j + 1];
@@ -432,7 +379,9 @@ var GameUI = /** @class */ (function (_super) {
                 _loop_1(j);
             }
         }
-        if (trueIndex + 1 <= SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length) {
+        console.log("trueIndex222", trueIndex);
+        console.log("index", index);
+        if (trueIndex < SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length - 1) {
             var _loop_2 = function (i) {
                 var trueNode = this_2.rightArea.children[i];
                 var selfPos = cc.v3(trueNode.position);
@@ -443,7 +392,7 @@ var GameUI = /** @class */ (function (_super) {
                 }).start();
             };
             var this_2 = this;
-            for (var i = trueIndex; i < this.rightArea.childrenCount - 1; i++) {
+            for (var i = trueIndex; i < SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length - 1; i++) {
                 _loop_2(i);
             }
             var targetPos = this.rightArea.children[trueIndex].position;
@@ -463,7 +412,7 @@ var GameUI = /** @class */ (function (_super) {
             }).start();
         }
         else {
-            var targetIndex_1 = SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length;
+            var targetIndex_1 = index;
             var targetPos = this.rightArea.children[targetIndex_1].position;
             var endPos = cc.v3(this.rightArea_posX, targetPos.y);
             cc.tween(this.shot_node).delay(0.5).to(1, { position: endPos, scale: 0.23 }).call(function () {
@@ -472,6 +421,12 @@ var GameUI = /** @class */ (function (_super) {
                 _this.isShot = false;
                 UIHelp_1.UIHelp.closeMask();
                 _this.shotMask.active = false;
+                _this.rightArea.children.forEach(function (node) {
+                    node.active = false;
+                });
+                for (var i = 0; i < SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr.length; i++) {
+                    _this.handleShowTrueNode(i, SyncDataManager_1.SyncDataManager.getSyncData().customSyncData.trueArr[i]);
+                }
             }).start();
         }
     };

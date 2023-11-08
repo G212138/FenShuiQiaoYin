@@ -83,6 +83,7 @@ export default class GamePanel extends BaseGamePanel {
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = 1;
         SyncDataManager.getSyncData().customSyncData.shiguan_3 = 6;
         SyncDataManager.getSyncData().customSyncData.trueArr = [];
+        SyncDataManager.getSyncData().customSyncData.shotEnable = true;
         ListenerManager.dispatch(EventType.GAME_REPLAY);
     }
 
