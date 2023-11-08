@@ -18,6 +18,7 @@ var CustomSyncData = /** @class */ (function () {
         this.shiguan_3 = 6;
         this.trueArr = [];
         this.shotEnable = true;
+        this.needChangeShiguan = false;
     }
     return CustomSyncData;
 }());

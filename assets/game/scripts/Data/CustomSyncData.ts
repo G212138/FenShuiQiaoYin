@@ -11,4 +11,5 @@ export class CustomSyncData {
     public shiguan_3: number = 6;
     public trueArr: number[][] = [];
     public shotEnable: boolean = true;
+    public needChangeShiguan: boolean = false;
 }

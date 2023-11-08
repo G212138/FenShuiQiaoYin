@@ -24,6 +24,8 @@ export default class GameUI extends cc.Component {
     private btn_tijiao: cc.Node = null;
     @property(cc.Node)
     private shot_node: cc.Node = null;
+    @property(cc.Node)
+    private shotMask: cc.Node = null;
 
     private shiguan_posY = -250;
     private rightArea_posX = 723;
@@ -58,6 +60,7 @@ export default class GameUI extends cc.Component {
     }
 
     private initUI() {
+        this.shotMask.active = false;
         this.initShiguan();
         this.updateBtnState();
 
@@ -138,22 +141,22 @@ export default class GameUI extends cc.Component {
         SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (this.needChangeShiguan) {
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
             this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
         } else {
             this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 + 1);
             this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
-        }        
+        }
         this.shiguan_1++;
-        if (this.needChangeShiguan) {
-            this.needChangeShiguan = false;
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
+            SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
             this.shiguan_2 = 1;
             this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
             this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
             this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
         } else {
             this.shiguan_3--;
-        }        
+        }
         SyncDataManager.getSyncData().customSyncData.shiguan_1 = this.shiguan_1;
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -166,23 +169,23 @@ export default class GameUI extends cc.Component {
         SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (this.needChangeShiguan) {
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
             this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
         } else {
             this.setShiguan_ani(this.shiguanNode[0], this.shiguan_1, this.shiguan_1 - 1);
             this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
         }
-        
+
         this.shiguan_1--;
-        if (this.needChangeShiguan) {
-            this.needChangeShiguan = false;
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
+            SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
             this.shiguan_2 = 1;
             this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
             this.setShiguan_idle(this.shiguanNode[1], this.shiguan_2);
             this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
         } else {
             this.shiguan_3++;
-        }        
+        }
         SyncDataManager.getSyncData().customSyncData.shiguan_1 = this.shiguan_1;
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -195,23 +198,23 @@ export default class GameUI extends cc.Component {
         SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (this.needChangeShiguan) {
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
             this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
         } else {
             this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 + 1);
             this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 - 1);
         }
-        
+
         this.shiguan_2++;
-        if (this.needChangeShiguan) {
-            this.needChangeShiguan = false;
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
+            SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
             this.shiguan_1 = 1;
             this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
             this.setShiguan_idle(this.shiguanNode[0], this.shiguan_1);
             this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
         } else {
             this.shiguan_3--;
-        }        
+        }
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -224,23 +227,23 @@ export default class GameUI extends cc.Component {
         SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = false;
         SyncDataManager.getSyncData().customSyncData.shotEnable = true;
-        if (this.needChangeShiguan) {
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
             this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
         } else {
             this.setShiguan_ani(this.shiguanNode[1], this.shiguan_2, this.shiguan_2 - 1);
             this.setShiguan_ani(this.shiguanNode[2], this.shiguan_3, this.shiguan_3 + 1);
         }
-        
+
         this.shiguan_2--;
-        if (this.needChangeShiguan) {
-            this.needChangeShiguan = false;
+        if (SyncDataManager.getSyncData().customSyncData.needChangeShiguan) {
+            SyncDataManager.getSyncData().customSyncData.needChangeShiguan = false;
             this.shiguan_1 = 1;
             this.shiguan_3 = 8 - this.shiguan_1 - this.shiguan_2;
             this.setShiguan_idle(this.shiguanNode[0], this.shiguan_1);
             this.setShiguan_idle(this.shiguanNode[2], this.shiguan_3);
         } else {
             this.shiguan_3++;
-        }        
+        }
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager.getSyncData().customSyncData.shiguan_2 = this.shiguan_2;
         SyncDataManager.getSyncData().customSyncData.shiguan_3 = this.shiguan_3;
@@ -271,7 +274,6 @@ export default class GameUI extends cc.Component {
     }
 
     private isShot: boolean = false;
-    private needChangeShiguan: boolean = false;
     private onClickShot() {
         UIHelp.showMask();
         if (this.isShot) return;
@@ -279,7 +281,7 @@ export default class GameUI extends cc.Component {
         SoundManager.stopSoundByName(SoundConfig.soudlist["点击音效"]);
         SoundManager.playEffect(SoundConfig.soudlist["点击音效"], false, false, false);
         this.node.getChildByName("btn_paizhao").getChildByName("disable").active = true;
-        SyncDataManager.getSyncData().customSyncData.shotEnable = false;        
+        SyncDataManager.getSyncData().customSyncData.shotEnable = false;
         let arr = [this.shiguan_1, this.shiguan_2, this.shiguan_3];
         let newArr = [];
         arr.sort((a, b) => {
@@ -288,6 +290,9 @@ export default class GameUI extends cc.Component {
         for (let i = 0; i < arr.length; i++) {
             newArr.push(arr[i]);
         }
+        SyncDataManager.getSyncData().customSyncData.shiguan_1 = newArr[0];
+        SyncDataManager.getSyncData().customSyncData.shiguan_2 = newArr[1];
+        SyncDataManager.getSyncData().customSyncData.shiguan_3 = newArr[2];
         let oldArr = [this.shiguan_1, this.shiguan_2, this.shiguan_3];
 
         let need_change_index = [];
@@ -303,6 +308,9 @@ export default class GameUI extends cc.Component {
                 let endPos = this.shiguanNode[need_change_index[need_change_index.length - i - 1]].position;
                 this.changeShiguanAni(shiguan, endPos, newArr);
             }
+            this.scheduleOnce(() => {
+                this.resetAni(newArr);
+            }, 2);
         } else {
             this.resetAni(newArr);
         }
@@ -316,12 +324,11 @@ export default class GameUI extends cc.Component {
             .then(cc.bezierTo(2, [cc.v2(startPos), cc.v2(controlPos), cc.v2(endPos)]).easing(cc.easeSineOut()))
             .call(() => {
                 node.position = startPos;
-                this.resetAni(arr);
             })
             .start();
     }
 
-    private resetAni(arr: number[]) {        
+    private resetAni(arr: number[]) {
         for (let i = 0; i < 3; i++) {
             this.setShiguan_idle(this.shiguanNode[i], arr[i]);
             this.setShiguan_lbl(this.shiguanLabel[i], arr[i]);
@@ -342,17 +349,34 @@ export default class GameUI extends cc.Component {
             }
         }
 
-        SoundManager.stopSoundByName(SoundConfig.soudlist["照相机咔嚓音效"]);
-        SoundManager.playEffect(SoundConfig.soudlist["照相机咔嚓音效"], false, false, false);
+        this.scheduleOnce(() => {
+            SoundManager.stopSoundByName(SoundConfig.soudlist["照相机咔嚓音效"]);
+            SoundManager.playEffect(SoundConfig.soudlist["照相机咔嚓音效"], false, false, false);
+            this.shotMask.active = true;
+            this.shotMask.color = cc.Color.WHITE;
+            this.shotMask.opacity = 200;
+            cc.tween(this.shotMask).to(0.2, { opacity: 50 }).call(() => {
+                this.shotMask.color = cc.Color.BLACK;
 
-        if (isHave) {
-            this.handleWrong(index);
-        } else {
-            this.handleTrue(arr);
-        }
+                this.shot_node.scale = 1;
+                this.shot_node.x = -300;
+                this.shot_node.y = 0;
+                this.shot_node.active = true;
+                for (let i = 0; i < 3; i++) {
+                    this.setShiguan_idle(this.shot_node.getChildByName("guan_" + (i + 1)), arr[i]);
+                }
+
+                if (isHave) {
+                    this.handleWrong(index);
+                } else {
+                    this.handleTrue(arr);
+                }
+            }).start();
+        }, 0.2);
     }
 
     private handleWrong(index: number) {
+        ListenerManager.dispatch(EventType.SUBMIT, false);
         SoundManager.stopSoundByName(SoundConfig.soudlist["错误音效"]);
         SoundManager.playEffect(SoundConfig.soudlist["错误音效"], false, false, false);
         let trueNode = this.rightArea.children[index];
@@ -366,31 +390,108 @@ export default class GameUI extends cc.Component {
             .to(0.1, { opacity: 255 }).delay(0.15).to(0.1, { opacity: 0 })
             .call(() => {
                 UIHelp.closeMask();
-            })
-            .start();
+                this.shotMask.active = false;
+                this.shot_node.active = false;
+            }).start();
 
     }
 
     private handleTrue(arr: number[]) {
-        this.needChangeShiguan = true;
-        this.shot_node.scale = 1;
-        this.shot_node.x = -300;
-        this.shot_node.y = 0;
-        this.shot_node.active = true;
-        let targetIndex = SyncDataManager.getSyncData().customSyncData.trueArr.length;
-        //this.shot_node移动到rightArea.children[targetIndex]位置
-        let targetPos = this.rightArea.children[targetIndex].position;
-        let endPos = cc.v3(this.rightArea_posX, targetPos.y);
-        cc.tween(this.shot_node).to(0.5, { position: endPos, scale: 0.23 }).call(() => {
-            this.shot_node.active = false;
-            this.handleShowTrueNode(targetIndex, arr);
-            this.isShot = false;
-            UIHelp.closeMask();
-        }).start();
+        SyncDataManager.getSyncData().customSyncData.needChangeShiguan = true;
+
+        //先根据arr在allTrueArr中的数据找到最终的位置
+        let trueIndex = 0;
+        for (let i = 0; i < this.allTrueArr.length; i++) {
+            let trueArr = this.allTrueArr[i];
+            if (trueArr[0] == arr[0] && trueArr[1] == arr[1] && trueArr[2] == arr[2]) {
+                trueIndex = i;
+                break;
+            }
+        }
+
+        for (let i = 0; i < this.allTrueArr.length; i++) {
+            let trueArr = this.allTrueArr[i];
+            for (let j = 0; j < SyncDataManager.getSyncData().customSyncData.trueArr.length; j++) {
+                let arr = SyncDataManager.getSyncData().customSyncData.trueArr[j];
+                if (trueArr[0] == arr[0] && trueArr[1] == arr[1] && trueArr[2] == arr[2]) {                    
+                    if (i > trueIndex) {
+                        let trueNode = this.rightArea.children[j];
+                        let selfPos = cc.v3(trueNode.position);
+                        let nextTrueNode = this.rightArea.children[j + 1];
+                        let endPos = nextTrueNode.position;
+                        cc.tween(trueNode).delay(0.5).to(1, { position: endPos }).call(() => {
+                            trueNode.position = selfPos;
+                        }).start();
+                    }
+                }
+            }
+        }
+
+        if (trueIndex + 1 <= SyncDataManager.getSyncData().customSyncData.trueArr.length) {
+            for (let i = trueIndex; i < this.rightArea.childrenCount - 1; i++) {
+                let trueNode = this.rightArea.children[i];
+                let selfPos = cc.v3(trueNode.position);
+                let nextTrueNode = this.rightArea.children[i + 1];
+                let endPos = nextTrueNode.position;
+                cc.tween(trueNode).delay(0.5).to(1, { position: endPos }).call(() => {
+                    trueNode.position = selfPos;
+                }).start();
+            }
+            let targetPos = this.rightArea.children[trueIndex].position;
+            let endPos = cc.v3(this.rightArea_posX, targetPos.y);
+
+            cc.tween(this.shot_node).delay(0.5).to(1, { position: endPos, scale: 0.23 }).call(() => {
+                this.shot_node.active = false;
+                this.handleShowTrueNode(trueIndex, arr);
+                this.isShot = false;
+                UIHelp.closeMask();
+                this.shotMask.active = false;
+                this.rightArea.children.forEach(node => {
+                    node.active = false;
+                });
+                for (let i = 0; i < SyncDataManager.getSyncData().customSyncData.trueArr.length; i++) {
+                    this.handleShowTrueNode(i, SyncDataManager.getSyncData().customSyncData.trueArr[i]);
+                }
+            }).start();
+        } else {
+            let targetIndex = SyncDataManager.getSyncData().customSyncData.trueArr.length;
+            let targetPos = this.rightArea.children[targetIndex].position;
+            let endPos = cc.v3(this.rightArea_posX, targetPos.y);
+            cc.tween(this.shot_node).delay(0.5).to(1, { position: endPos, scale: 0.23 }).call(() => {
+                this.shot_node.active = false;
+                this.handleShowTrueNode(targetIndex, arr);
+                this.isShot = false;
+                UIHelp.closeMask();
+                this.shotMask.active = false;
+            }).start();
+        }
     }
 
     private handleShowTrueNode(index, arr: number[]) {
-        SyncDataManager.getSyncData().customSyncData.trueArr.push(arr);
+        let isHave = false;
+        for (let i = 0; i < SyncDataManager.getSyncData().customSyncData.trueArr.length; i++) {
+            let trueArr = SyncDataManager.getSyncData().customSyncData.trueArr[i];
+            if (trueArr[0] == arr[0] && trueArr[1] == arr[1] && trueArr[2] == arr[2]) {
+                isHave = true;
+                break;
+            }
+        }
+        if (!isHave) {
+            SyncDataManager.getSyncData().customSyncData.trueArr.push(arr);
+        }
+
+        let tempTrueArr = [];
+        for (let i = 0; i < this.allTrueArr.length; i++) {
+            let allTrueArr = this.allTrueArr[i];
+            for (let j = 0; j < SyncDataManager.getSyncData().customSyncData.trueArr.length; j++) {
+                let trueArr = SyncDataManager.getSyncData().customSyncData.trueArr[j];
+                if (trueArr[0] == allTrueArr[0] && trueArr[1] == allTrueArr[1] && trueArr[2] == allTrueArr[2]) {
+                    tempTrueArr.push(trueArr);
+                }
+            }
+        }
+        SyncDataManager.getSyncData().customSyncData.trueArr = tempTrueArr;
+
         let trueNode = this.rightArea.children[index];
         trueNode.active = true;
         trueNode.getChildByName("shiguan_1").getComponent(sp.Skeleton).animation = arr[0] + "idle";
